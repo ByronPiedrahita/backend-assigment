@@ -1,0 +1,22 @@
+{
+  "name": "backend-assigment",
+  "version": "1.0.0",
+  "description": "Code Challenge para candidatos Backend para DocRed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByronPiedrahita/backend-assigment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ByronPiedrahita/backend-assigment/issues"
+  },
+  "homepage": "https://github.com/ByronPiedrahita/backend-assigment#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

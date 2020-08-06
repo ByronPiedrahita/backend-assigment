@@ -6,9 +6,8 @@ const Controller = require('./index');
 const router = express.Router();
 
 // Routes
-router.get('/', list);
+router.get('/', list)
 router.get('/:id', get);
-router.post('/problem/:id', problem);
 
 // Internal functions
 function list(req, res) {
@@ -19,6 +18,7 @@ function list(req, res) {
         .catch((err) => {
             response.error(req, res, err.message, 500);
         });
+    
 }
 
 function get(req, res) {
@@ -29,16 +29,7 @@ function get(req, res) {
         .catch((err) => {
             response.error(req, res, err.message, 500);
         });
-}
-
-function problem(req, res) {
-    Controller.problem(req.query, req.params)
-        .then((problems) => {
-            response.success(req, res, problems, 201);
-        })
-        .catch((err) => {
-            response.error(req, res, err.message, 500);
-        });
+    
 }
 
 module.exports = router;

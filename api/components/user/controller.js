@@ -3,7 +3,7 @@ const TABLA = 'user';
 module.exports = function (injectedStore) {
     let store = injectedStore;
     if (!store) {
-        store = require('../../../store/dummy');
+        store = require('../../../store/mysql');
     }
 
     function list() {
@@ -14,8 +14,20 @@ module.exports = function (injectedStore) {
         return store.get(TABLA, id);
     }
 
+    async function problem(query, id){
+        const agente = await store.query('agentes', { libre: 0 });
+        const problema = {
+           detalle: query.detalle,
+           id_user: id.id,
+           id_agente: agente.id,
+       } 
+       store.agente(agente.id, 1);
+       return store.problem(problema);
+    }
+
     return {
         list,
-        get
+        get,
+        problem,
     };
 }
